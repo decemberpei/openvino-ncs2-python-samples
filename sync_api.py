@@ -20,4 +20,5 @@ res = exec_net.infer(inputs={input_blob: image}).get("detection_out")
 print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
 
 del exec_net
+del net
 del plugin

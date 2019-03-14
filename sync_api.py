@@ -16,9 +16,7 @@ exec_net = plugin.load(network=net, num_requests=1)
 start_time = time.time()
 image_number = 200
 for i in range(1, 1 + image_number):
-	print(str(time.time()))
 	image = cv2.imread("/opt/intel/computer_vision_sdk/deployment_tools/demo/car.png")
-	print(str(time.time()))
 	image = cv2.resize(image, (w, h))
 	image = image.transpose((2, 0, 1))
 	image = image.reshape((n, c, h, w))

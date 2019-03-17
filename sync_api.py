@@ -21,7 +21,7 @@ for i in range(1, 1 + image_number):
 	image = image.transpose((2, 0, 1))
 	image = image.reshape((n, c, h, w))
 	res = exec_net.infer(inputs={input_blob: image}).get("detection_out")
-	#print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
+	print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
 	duration = time.time() - start_time
 	print("inferred frames: " + str(i) + ", average fps: " + str(i/duration) +"\r", end = '', flush = False)
 print()

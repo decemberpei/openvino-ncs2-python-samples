@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from openvino.inference_engine import IENetwork, IEPlugin
 import cv2
 import os

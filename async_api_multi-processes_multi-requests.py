@@ -57,8 +57,8 @@ def async_infer_worker(exe_net, request_number, image_queue, input_blob, out_blo
 
         current_request_ids, next_request_ids = next_request_ids, current_request_ids
         
-        for i in range(len(buffers)):
-            image_queue.task_done()
+        #for i in range(len(buffers)):
+        #    image_queue.task_done()
             
         if done:
             break
@@ -90,14 +90,14 @@ def preprocess_worker(image_queue, n, c, h, w):
 
 start_time = -1
 
-# ./async_api_multi-threads_multi-requests.py <request number>            
+# ./async_api_multi-processes_multi-requests.py <request number>            
 def main():
     global start_time
 
     # specify simutaneous request number in argv
     request_number = int(sys.argv[1])
     
-    image_queue = queue.Queue(maxsize= request_number*3)
+    image_queue = multiprocessing.Queue(maxsize= request_number*3)
 
     model_dir = os.environ['HOME'] + "/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP16/"
     model_xml = model_dir + "mobilenet-ssd.xml"

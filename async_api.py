@@ -16,20 +16,31 @@ n, c, h, w = net.inputs[input_blob].shape
 exec_net = plugin.load(network=net, num_requests=2)
 
 start_time = time.time()
-image_number = 200
 current_inference, next_inference = 0, 1
-for i in range(1, 1 + image_number):
-	image = cv2.imread("/opt/intel/computer_vision_sdk/deployment_tools/demo/car.png")
-	image = cv2.resize(image, (w, h))
-	image = image.transpose((2, 0, 1))
-	image = image.reshape((n, c, h, w))
-	exec_net.start_async(request_id=current_inference, inputs={input_blob: image})
-	if exec_net.requests[next_inference].wait(-1) == 0:
-		res = exec_net.requests[next_inference].outputs[out_blob]
-		print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
-	duration = time.time() - start_time
-	print("inferred frames: " + str(i) + ", average fps: " + str(i/duration) +"\r", end = '', flush = False)
-	current_inference, next_inference = next_inference, current_inference
+# for test purpose only
+image_number = 200
+inferred_images = 0
+for i in range(0, image_number):
+    image = cv2.imread("/opt/intel/computer_vision_sdk/deployment_tools/demo/car.png")
+    image = cv2.resize(image, (w, h))
+    image = image.transpose((2, 0, 1))
+    image = image.reshape((n, c, h, w))
+    exec_net.start_async(request_id=current_inference, inputs={input_blob: image})
+    if exec_net.requests[next_inference].wait(-1) == 0:
+        inferred_images = inferred_images + 1
+        res = exec_net.requests[next_inference].outputs[out_blob]
+        #print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
+    duration = time.time() - start_time
+    print("inferred frames: " + str(inferred_images) + ", average fps: " + str(inferred_images/duration) +"\r", end = '', flush = False)
+    current_inference, next_inference = next_inference, current_inference
+# one more inference result left to check
+if exec_net.requests[next_inference].wait(-1) == 0:
+    inferred_images = inferred_images + 1
+    res = exec_net.requests[next_inference].outputs[out_blob]
+    #print("infer result: label:%f confidence:%f left:%f top:%f right:%f bottom:%f" %(res[0][0][0][1], res[0][0][0][2], res[0][0][0][3], res[0][0][0][4], res[0][0][0][5], res[0][0][0][6]))
+    duration = time.time() - start_time
+    print("inferred frames: " + str(inferred_images) + ", average fps: " + str(inferred_images/duration) +"\r", end = '', flush = False)
+    
 print()
 
 del exec_net

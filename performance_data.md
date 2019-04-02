@@ -1,10 +1,10 @@
 # beblow is the test result on an Intel i5-7200U ultrabook
 config|Parameters|FPS
 ---|:--:|---:
-sync_api.p| |16.050873524801453
-async_api.py| |29.352513957879324
-async_api_multi-threads.py| |39.667721322205055
-async_api_multi-processes.py| |41.084748784333684
+sync_api.p|N/A|16.050873524801453
+async_api.py|N/A|29.352513957879324
+async_api_multi-threads.py|N/A|39.667721322205055
+async_api_multi-processes.py|N/A|41.084748784333684
 async_api_multi-threads_multi-requests.py|2|41.854912389218885
 async_api_multi-threads_multi-requests.py|4|46.095173369691004
 async_api_multi-processes_multi-requests.py|2|43.477770517034926

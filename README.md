@@ -1,2 +1,1 @@
-# openvino-ncs2-python-samples
-openvino NCS2 python samples
+# Openvino IE(Inference Engine) python samples

@@ -1,8 +1,0 @@
-./sync_api.py  16.050873524801453
-./async_api.py  29.352513957879324
-./async_api_multi-threads.py  39.667721322205055
-./async_api_multi-processes.py  41.084748784333684
-./async_api_multi-threads_multi-requests.py 2:41.854912389218885, 4:46.095173369691004
-./async_api_multi-processes_multi-requests.py 2:43.477770517034926, 4:46.070958743063564
-./async_api_multi-threads_multi-requests_multi-ncs.py 2-1:60.313427342506766, 2-2:79.82939749065703, 2-4:87.53705811233776
-./async_api_multi-processes_multi-requests_multi-ncs.py 2-1:61.018100651765456, 2-2:86.02675250395884, 2-4:89.02194282781669

@@ -22,10 +22,10 @@
 
 `python3 async_api_multi-threads_multi-requests.py [requests_number]`
 
-5. the 'async API' + 'multiple threads' + 'simutaneous inference requests' + 'multiple ncs' implementation (this will boost you to 87FPS on a i5-7200u if $ncs_number is 2 and $requests_number is 4)
+5. the 'async API' + 'multiple threads' + 'simutaneous inference requests' + 'multiple ncs' implementation (this will boost you to 87FPS on a i5-7200u if $ncs_number is 2 and $requests_number is 4), please note that we need to equip 2 or more NCS2 here
 
 `python3 async_api_multi-threads_multi-requests_multi-ncs.py [ncs_number] [requests_number]`
 
-5. the 'async API' + 'multiple processes' + 'simutaneous inference requests' + 'multiple ncs' implementation (this will boost you to 89FPS on a i5-7200u if $ncs_number is 2 and $requests_number is 4)
+5. the 'async API' + 'multiple processes' + 'simutaneous inference requests' + 'multiple ncs' implementation (this will boost you to 89FPS on a i5-7200u if $ncs_number is 2 and $requests_number is 4), please note that we need to equip 2 or more NCS2 here
 
 `python3 async_api_multi-processes_multi-requests_multi-ncs.py [ncs_number] [requests_number]`

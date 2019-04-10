@@ -16,7 +16,7 @@ async_api_multi-processes_multi-requests_multi-ncs.py|2 1|61.018100651765456
 async_api_multi-processes_multi-requests_multi-ncs.py|2 2|86.02675250395884
 async_api_multi-processes_multi-requests_multi-ncs.py|2 4|89.02194282781669
 
-# also the test result on UP squared (UP2) dev board (Intel® Celeron™ N3350) with standard Ubuntu 16.04
+# also the result on UP2 IoT dev board (Celeron™ N3350)
 config|Parameters|FPS
 ---|:--:|---:
 sync_api.py|N/A|16.534288935980122
